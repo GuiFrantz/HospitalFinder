@@ -29,7 +29,7 @@ jobs:
 
       - name: Check tests integrity
         run: |
-          GENERATED_HASH=$(sha256sum test/widget_teacher_optional_test.dart | awk '{ print $1 }')
+          GENERATED_HASH=$(sha256sum test/widget_optional_test.dart | awk '{ print $1 }')
           echo "GENERATED_HASH: $GENERATED_HASH"
           if [ "$GENERATED_HASH" != "$EXPECTED_HASH" ]; then
             echo "🚨🚓 Não deves modificar os testes, se não foram modificados contacta o professor 🚨🚓"
@@ -42,7 +42,7 @@ jobs:
         uses: ./.github/actions/setup_flutter
 
       - name: Mandatory Tests
-        run: flutter test test/widget_teacher_optional_test.dart
+        run: flutter test test/widget_optional_test.dart
 
   mandatory-tests:
     name: Mandatory Tests
@@ -53,7 +53,7 @@ jobs:
 
       - name: Check tests integrity
         run: |
-          GENERATED_HASH=$(sha256sum test/widget_teacher_mandatory_test.dart | awk '{ print $1 }')
+          GENERATED_HASH=$(sha256sum test/widget_mandatory_test.dart | awk '{ print $1 }')
           echo "GENERATED_HASH: $GENERATED_HASH"
           if [ "$GENERATED_HASH" != "$EXPECTED_HASH" ]; then
             echo "🚨🚓 Não deves modificar os testes, se não foram modificados contacta o professor 🚨🚓"
@@ -66,7 +66,7 @@ jobs:
         uses: ./.github/actions/setup_flutter
 
       - name: Mandatory Tests
-        run: flutter test test/widget_teacher_mandatory_test.dart
+        run: flutter test test/widget_mandatory_test.dart
 
   build:
     name: Build APK
